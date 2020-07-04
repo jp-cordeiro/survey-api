@@ -26,6 +26,8 @@
     "jest": "^26.0.1",
     "lint-staged": "^10.2.9",
     "ts-jest": "^26.1.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "sucrase": "^3.12.1",
+    "prettier": "^1.19.1"
   }
 }
