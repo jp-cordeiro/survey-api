@@ -4,7 +4,7 @@
 $ yarn install
 
 # Criar diretório .husky
-$ npx install
+$ npx husky install
 
 # Configurar git-commit-msg-linter
 $ npx husky add .husky/commit-msg ".git/hooks/commit-msg \$1"
