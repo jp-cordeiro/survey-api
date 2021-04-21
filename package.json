@@ -21,13 +21,13 @@
     "eslint-plugin-node": "11",
     "eslint-plugin-promise": "4",
     "eslint-plugin-standard": "4",
-    "git-commit-msg-linter": "^2.4.2",
+    "git-commit-msg-linter": "^3.1.0",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "lint-staged": "^10.2.9",
-    "ts-jest": "^26.1.0",
-    "typescript": "^3.9.5",
+    "prettier": "^1.19.1",
     "sucrase": "^3.12.1",
-    "prettier": "^1.19.1"
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
   }
 }
