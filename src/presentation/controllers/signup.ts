@@ -6,9 +6,7 @@ import { EmailValidator } from '@/presentation/protocols/email-validator'
 import { InvalidParamError } from '@/presentation/errors/invalid-param-error'
 
 export class SignUpController implements Controller {
-  private readonly emailValidator: EmailValidator
-
-  constructor (emailValidator: EmailValidator) {
+  constructor (private readonly emailValidator: EmailValidator) {
     this.emailValidator = emailValidator
   }
 
