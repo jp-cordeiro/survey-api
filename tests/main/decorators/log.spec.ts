@@ -59,6 +59,23 @@ describe('LogController Decorator', () => {
     expect(handleSpy).toHaveBeenCalledWith(httpRequest)
   })
 
+  test('should return the same result of the controller', async () => {
+    const { sut } = makeSut()
+    const httpRequest = {
+      body: {
+        name: 'Luffy',
+        email: 'luffy@op.com',
+        password: 'niku123',
+        passwordConfirmation: 'niku123'
+      }
+    }
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse).toEqual({
+      statusCode: 200,
+      body: { ok: 'ok' }
+    })
+  })
+
   test('should call LogErrorRepository with correct error if controller returns a server error', async () => {
     const { sut, controllerStub, logErrorRepositoryStub } = makeSut()
     const fakeError = new Error()
