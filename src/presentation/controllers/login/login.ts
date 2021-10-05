@@ -2,6 +2,7 @@ import { Authentication } from '@/domain/useCases/authentication'
 import { InvalidParamError, MissingParamError } from '@/presentation/errors'
 import {
   badRequest,
+  ok,
   serverError,
   unauthorizedError
 } from '@/presentation/helpers/http-helper'
@@ -38,6 +39,7 @@ export class LoginController implements Controller {
       if (!accessToken) {
         return unauthorizedError()
       }
+      return ok({ accessToken })
     } catch (error) {
       return serverError(error)
     }
