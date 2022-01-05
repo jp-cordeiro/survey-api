@@ -7,8 +7,7 @@ import {
   serverError,
   unauthorizedError
 } from '@/presentation/helpers/http-helper'
-import { Validation } from '@/presentation/helpers/validators'
-import { HttpRequest } from '@/presentation/protocols'
+import { HttpRequest, Validation } from '@/presentation/protocols'
 
 const makeFakeRequest = (): HttpRequest => ({
   body: {

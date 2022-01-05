@@ -1,8 +1,6 @@
 import { MissingParamError } from '@/presentation/errors'
-import {
-  Validation,
-  ValidationComposite
-} from '@/presentation/helpers/validators'
+import { ValidationComposite } from '@/presentation/helpers/validators'
+import { Validation } from '@/presentation/protocols'
 
 interface SutTypes {
   sut: ValidationComposite
