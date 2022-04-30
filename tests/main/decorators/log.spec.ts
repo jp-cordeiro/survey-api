@@ -1,4 +1,4 @@
-import { LogErrorRepository } from '@/data/protocols/log-error-repository'
+import { LogErrorRepository } from '@/data/protocols/db/log-error-repository'
 import { AccountModel } from '@/domain/models/account'
 import { LogControllerDecorator } from '@/main/decorators/log'
 import { ok, serverError } from '@/presentation/helpers/http-helper'
@@ -77,11 +77,7 @@ describe('LogController Decorator', () => {
   test('should call LogErrorRepository with correct error if controller returns a server error', async () => {
     const { sut, controllerStub, logErrorRepositoryStub } = makeSut()
     const logSpy = jest.spyOn(logErrorRepositoryStub, 'logError')
-    jest
-      .spyOn(controllerStub, 'handle')
-      .mockReturnValueOnce(
-        new Promise(resolve => resolve(makeFakeServerError()))
-      )
+    jest.spyOn(controllerStub, 'handle').mockReturnValueOnce(new Promise(resolve => resolve(makeFakeServerError())))
     await sut.handle(makeFakeRequest())
     expect(logSpy).toHaveBeenCalledWith('any_stack')
   })

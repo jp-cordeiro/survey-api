@@ -1,5 +1,5 @@
-import { AddAccountRepository } from '@/data/protocols/add-account-repository'
-import { Encrypter } from '@/data/protocols/encrypter'
+import { Encrypter } from '@/data/protocols/criptography/encrypter'
+import { AddAccountRepository } from '@/data/protocols/db/add-account-repository'
 import { DbAddAccount } from '@/data/usecases/db-add-account'
 import { AccountModel } from '@/domain/models/account'
 interface SutTypes {
@@ -60,11 +60,7 @@ describe('DbAddAccount Usecase', () => {
 
   test('should throw if Encrypter throws', async () => {
     const { encrypterStub, sut } = makeSut()
-    jest
-      .spyOn(encrypterStub, 'encrypt')
-      .mockReturnValueOnce(
-        new Promise((resolve, reject) => reject(new Error()))
-      )
+    jest.spyOn(encrypterStub, 'encrypt').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
     const promise = sut.add(makeFakeAccountData())
     await expect(promise).rejects.toThrow()
   })
@@ -82,11 +78,7 @@ describe('DbAddAccount Usecase', () => {
 
   test('should throw if AddAccoutnRepository throws', async () => {
     const { addAccountRepositoryStub, sut } = makeSut()
-    jest
-      .spyOn(addAccountRepositoryStub, 'add')
-      .mockReturnValueOnce(
-        new Promise((resolve, reject) => reject(new Error()))
-      )
+    jest.spyOn(addAccountRepositoryStub, 'add').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
     const promise = sut.add(makeFakeAccountData())
     await expect(promise).rejects.toThrow()
   })
