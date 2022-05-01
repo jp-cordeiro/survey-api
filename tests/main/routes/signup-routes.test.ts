@@ -2,7 +2,7 @@ import request from 'supertest'
 import app from '@/main/config/app'
 import { MongoHelper } from '@/infra/db/mongodb/helpers/mongo-helper'
 
-describe('SignUo Routes', () => {
+describe('SignUp Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
   })
