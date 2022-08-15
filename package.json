@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "_moduleAliases": {
+    "@": "dist"
+  },
   "scripts": {
-    "start": "sucrase-node  src/main/server.ts",
+    "start": "node dist/main/server.js",
+    "build": "tsc",
     "dev": "ts-node-dev -r tsconfig-paths/register src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests",
@@ -38,6 +42,7 @@
     "husky": "^7.0.4",
     "jest": "^26.0.1",
     "lint-staged": "^10.2.9",
+    "module-alias": "^2.2.2",
     "prettier": "^1.19.1",
     "sucrase": "^3.20.1",
     "supertest": "^6.1.6",
